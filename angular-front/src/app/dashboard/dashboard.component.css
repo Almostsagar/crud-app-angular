@@ -1,0 +1,21 @@
+.example-container {
+    display: flex;
+    flex-direction: column;
+    margin-top: 100px;
+  }
+  
+  .mat-table {
+    overflow: auto;
+    max-height: 500px;
+  }
+  
+  .mat-column-select {
+    overflow: initial;
+  }
+  
+
+  .flexx{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+  }

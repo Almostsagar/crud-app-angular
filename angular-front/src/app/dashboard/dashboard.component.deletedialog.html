@@ -1,0 +1,26 @@
+<style>
+  .flexx {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    align-items: center;
+  }
+  .mat-dialog-title {
+    text-align: center;
+  }
+  .mat-form-field{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+  .mat-raised-button{
+    width: 80px;
+  }
+</style>
+
+<div class="flexx">
+  <h3 mat-dialog-title>Are You Sure You Want to Delete Selected Employee</h3>
+  <form action="http://localhost:3000/remove/{{data.id}}" method="post">
+  <button mat-raised-button color="primary" type="submit">Submit</button>
+  </form>
+</div>

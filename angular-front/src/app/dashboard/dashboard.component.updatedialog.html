@@ -1,0 +1,51 @@
+<style>
+    .flexx {
+      display: flex;
+      flex-direction: column;
+      width: 300px;
+      align-items: center;
+    }
+    .mat-dialog-title {
+      text-align: center;
+    }
+    .mat-form-field{
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+    }
+    .mat-raised-button{
+      width: 80px;
+    }
+  </style>
+  
+  <div class="flexx">
+    <h3 mat-dialog-title>Update Employees</h3>
+    <form action="http://localhost:3000/update/{{data.id}}" method="post">
+    <mat-form-field appearance="fill">
+      First Name
+      <input matInput type="text" name="first_name" value="{{data.first_name}}"/>
+    </mat-form-field>
+    
+    <mat-form-field appearance="fill">
+      Last Name
+      <input matInput type="text" name="last_name" value="{{data.last_name}}"/>
+    </mat-form-field>
+  
+    <mat-form-field appearance="fill">
+      Email
+      <input matInput type="email" name="email" value="{{data.email}}"/>
+    </mat-form-field>
+  
+    <mat-form-field appearance="fill">
+      Active   
+      <input matInput  type="number" name="active" value="{{data.active}}"/>
+    </mat-form-field>
+  
+    <mat-form-field appearance="fill">
+      Age   
+      <input matInput type="number" name="age" value="{{data.age}}"/>
+    </mat-form-field>
+    <button mat-raised-button color="primary" type="submit" (click)="closeUpdateDialog()">Update</button>
+    </form>
+  </div>
+  

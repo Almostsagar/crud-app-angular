@@ -1,0 +1,69 @@
+<div class="example-container mat-elevation-z8">
+  <div class="flexx">
+    <button mat-raised-button color="primary" (click)="openAddDialog()">Add Employee Record</button>
+    <button mat-raised-button color="accent" (click)="openUpdateDialog()">Update Employee Record</button>
+    <button mat-raised-button color="warn" (click)="openDeleteDialog()">Delete Employee Record</button>
+  </div>
+  <mat-divider></mat-divider>
+  <mat-divider></mat-divider>
+  <mat-divider></mat-divider>
+
+  <mat-table #table [dataSource]="dataSource">
+    <!-- Checkbox Column -->
+    <ng-container matColumnDef="select">
+      <mat-header-cell *matHeaderCellDef>
+        <mat-checkbox
+          (change)="$event ? masterToggle() : null"
+          [checked]="selection.hasValue() && isAllSelected()"
+          [indeterminate]="selection.hasValue() && !isAllSelected()"
+        >
+        </mat-checkbox>
+      </mat-header-cell>
+      <mat-cell *matCellDef="let row">
+        <mat-checkbox
+          (click)="$event.stopPropagation()"
+          (change)="$event ? selection.toggle(row) : null"
+          [checked]="selection.isSelected(row)"
+        >
+        </mat-checkbox>
+      </mat-cell>
+    </ng-container>
+
+    =
+    <ng-container matColumnDef="first_name">
+      <mat-header-cell *matHeaderCellDef> first_name </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{ element.first_name }} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="last_name">
+      <mat-header-cell *matHeaderCellDef> last_name </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{ element.last_name }} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="email">
+      <mat-header-cell *matHeaderCellDef> email </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{ element.email }} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="age">
+      <mat-header-cell *matHeaderCellDef> age </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{ element.age }} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="active">
+      <mat-header-cell *matHeaderCellDef> active </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{ element.active }} </mat-cell>
+    </ng-container>
+    
+    <ng-container matColumnDef="id">
+      <mat-header-cell *matHeaderCellDef> id </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{ element.id }} </mat-cell>
+    </ng-container>
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row
+      *matRowDef="let row; columns: displayedColumns"
+      (click)="selection.toggle(row)"
+    >
+    </mat-row>
+  </mat-table>
+</div>
